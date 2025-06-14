@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# --- Konfigurasi Halaman Streamlit (HARUS JADI YANG PERTAMA) ---
+# --- Konfigurasi Halaman Streamlit
 st.set_page_config(layout="wide", page_title="Superstore Sales Dashboard")
 
 # --- Fungsi untuk Pre-processing Data ---

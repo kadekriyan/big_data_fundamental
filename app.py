@@ -2,10 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Pastikan venv Anda aktif dan pandas/matplotlib/seaborn sudah terinstal
-# pip install pandas matplotlib seaborn
-
-# --- START: Pre-processing (Pastikan sudah terintegrasi dari langkah sebelumnya) ---
+# --- START: Pre-processing
 try:
     df = pd.read_csv('superstore.csv', encoding='latin-1')
 except UnicodeDecodeError:
@@ -22,7 +19,7 @@ df['Order Month Name'] = df['Order Date'].dt.month_name()
 
 print("Dataset siap untuk EDA.")
 
-### EDA Poin 1: Trend Penjualan Bulanan Berdasarkan Tahun
+### Trend Penjualan Bulanan Berdasarkan Tahun
 print("\n--- EDA: Trend Penjualan Bulanan Berdasarkan Tahun ---")
 monthly_sales = df.groupby(['Order Year', 'Order Month Name', 'Order Month'])['Sales'].sum().reset_index()
 monthly_sales = monthly_sales.sort_values(by=['Order Year', 'Order Month'])
@@ -40,7 +37,7 @@ plt.tight_layout()
 plt.show()
 
 
-### EDA Poin 2: Profitabilitas per Kategori Produk
+### Profitabilitas per Kategori Produk
 print("\n--- EDA: Profitabilitas per Kategori Produk ---")
 category_profit = df.groupby('Category')['Profit'].sum().reset_index()
 category_profit = category_profit.sort_values(by='Profit', ascending=False)
